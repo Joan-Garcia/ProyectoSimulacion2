@@ -39,7 +39,7 @@ public class TestRunsUpandDownAverage {
         Numbers.add(0.95);
         Numbers.add(0.02);
         Numbers.add(0.06);
-        System.out.println( new RunsUpandDown1Average().areIndependient(Numbers, 90));
+        System.out.println( new RunsUpandDown1Average().areIndependent(Numbers, 90));
     }
 
 }

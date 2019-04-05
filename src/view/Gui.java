@@ -29,7 +29,7 @@ public class Gui {
     public Gui(){
         window = new JFrame();
         panel = new JPanel();
-        result = new JLabel("The numbers are independent!");
+        result = new JLabel();
         bCalculate = new JButton("Test");
         openFile = new JButton("Open");
         h1 = new JLabel("Select File");
@@ -67,6 +67,7 @@ public class Gui {
         window.setResizable(false);
         window.setLocationRelativeTo(null);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setTitle("Uniformity and independence tests");
     }
     
     private void h1Settings(){
@@ -131,7 +132,7 @@ public class Gui {
     
     private void resultSettings(){
         result.setFont(new Font("Century Gothic", Font.BOLD, 25));
-        result.setBounds(20, 350, 400, 30);
+        result.setBounds(20, 350, 470, 30);
         result.setForeground(Color.white);
     }
     

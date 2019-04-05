@@ -18,7 +18,7 @@ public class RunsUpandDown {
 
     }
 
-    public String areIndependient(ArrayList<Double> Numbers, int confidence) {
+    public String areIndependent(ArrayList<Double> Numbers, int confidence) {
         ArrayList<Integer> Runs = new ArrayList();
         {//Method to generate 1s and 0s
         for (int i = 0, j = 1; j < Numbers.size(); i++, j++) {
@@ -48,21 +48,21 @@ public class RunsUpandDown {
         System.out.println(zo);
         if(confiden==80){
             if(zo<1.28)
-                return "The numbers are independient!";
+                return "The numbers are independent!";
             else
-                return "the numbers are not independient!";
+                return "The numbers are not independent!";
         }
         if(confiden==90){
             if(zo<1.645)
-                return "The numbers are independient!";
+                return "The numbers are independent!";
             else
-                return "the numbers are not independient!";
+                return "The numbers are not independent!";
         }
         if(confiden==95){
             if(zo<1.96)
-                return "The numbers are independient!";
+                return "The numbers are independent!";
             else
-                return "the numbers are not independient!";
+                return "The numbers are not independent!";
         }
         return null;
         

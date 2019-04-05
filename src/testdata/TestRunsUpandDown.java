@@ -38,7 +38,7 @@ public class TestRunsUpandDown {
         Numbers.add(0.95);
         Numbers.add(0.02);
         Numbers.add(0.06);
-        System.out.println( new RunsUpandDown().areIndependient(Numbers, 90));
+        System.out.println( new RunsUpandDown().areIndependent(Numbers, 90));
     }
 
 }

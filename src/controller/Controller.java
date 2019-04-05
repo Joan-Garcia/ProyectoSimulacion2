@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import methods.RunsUpandDown;
+import methods.RunsUpandDown1Average;
 import model.FileReader;
 
 public class Controller implements ActionListener{
@@ -21,6 +23,8 @@ public class Controller implements ActionListener{
     private final JButton bCalculate, openFile;
     private final JRadioButton chi, runs, runsAverage;
     private FileReader fr;
+    private RunsUpandDown rud;
+    private RunsUpandDown1Average ruda;
     
     public Controller(JTextField dirFile, JComboBox confidence,
             ButtonGroup radioGroup, JLabel result, JButton bCalculate,
@@ -36,6 +40,8 @@ public class Controller implements ActionListener{
         this.runs = runs;
         this.runsAverage = runsAverage;
         fr = new FileReader();
+        rud = new RunsUpandDown();
+        ruda = new RunsUpandDown1Average();
     }
     
     private boolean checkData(){
@@ -50,14 +56,21 @@ public class Controller implements ActionListener{
             if (checkData()) {
                 ArrayList<Double> n = fr.readFile(dirFile.getText());
                 if (n != null) {
-                    for (int i = 0; i < n.size(); i++){
-                        System.out.println(n.get(i));
+                    int confi= Integer.parseInt(confidence.getSelectedItem().toString());
+                    if (chi.isSelected()) {
+                        result.setText("Coming Soon!");
+                    } else if (runs.isSelected()){
+                        result.setText(rud.areIndependent(n, confi));
+                    } else if (runsAverage.isSelected()){
+                        result.setText(ruda.areIndependent(n, confi));
                     }
                 }
             }else
                 JOptionPane.showMessageDialog(null, "Fill the data", "Error", 2);
             
         } else if (e.getSource() == openFile) {
+            result.setText("");
+            radioGroup.clearSelection();
             dirFile.setText(fr.getDirFile());
         }
     }

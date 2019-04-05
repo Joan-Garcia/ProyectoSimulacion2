@@ -2,8 +2,10 @@
 package view;
 
 import controller.Controller;
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -16,7 +18,7 @@ import javax.swing.JTextField;
 public class Gui {
     private final JFrame window;
     private final JPanel panel;
-    private final JLabel result, h1, h2, h3;
+    private final JLabel result, h1, h2, h3, background;
     private final JButton bCalculate, openFile;
     private final JTextField dirFile;
     private final JComboBox confidence;
@@ -40,6 +42,7 @@ public class Gui {
         runs = new JRadioButton("Runs up & down");
         runsAverage = new JRadioButton("Runs up & down the average");
         c = new Controller(dirFile, confidence, radioGroup, result, bCalculate, openFile, chi, runs, runsAverage);
+        background = new JLabel();
     }
     
     public void launch(){
@@ -54,6 +57,7 @@ public class Gui {
         radioGroupSettings();
         bCalculateSettings();
         resultSettings();
+        backgroundSettings();
         panelSettings();
         show();
     }
@@ -68,16 +72,19 @@ public class Gui {
     private void h1Settings(){
         h1.setFont(new Font("Century Gothic", Font.BOLD, 25));
         h1.setBounds(20, 20, 300, 30);
+        h1.setForeground(Color.white);
     }
     
     private void h2Settings(){
         h2.setFont(new Font("Century Gothic", Font.BOLD, 25));
         h2.setBounds(20, 130, 500, 30);
+        h2.setForeground(Color.white);
     }
     
     private void h3Settings(){
         h3.setFont(new Font("Century Gothic", Font.BOLD, 25));
         h3.setBounds(20, 230, 400, 30);
+        h3.setForeground(Color.white);
     }
     
     private void openFileSettings(){
@@ -99,10 +106,16 @@ public class Gui {
     
     private void radioButtonssettings(){
         chi.setBounds(20, 270, 100, 30);
+        chi.setOpaque(false);
+        chi.setForeground(Color.white);
         
         runs.setBounds(130, 270, 120, 30);
+        runs.setOpaque(false);
+        runs.setForeground(Color.white);
         
         runsAverage.setBounds(275, 270, 190, 30);
+        runsAverage.setOpaque(false);
+        runsAverage.setForeground(Color.white);
     }
     
     private void radioGroupSettings(){
@@ -119,6 +132,13 @@ public class Gui {
     private void resultSettings(){
         result.setFont(new Font("Century Gothic", Font.BOLD, 25));
         result.setBounds(20, 350, 400, 30);
+        result.setForeground(Color.white);
+    }
+    
+    private void backgroundSettings(){
+        background.setIcon(new ImageIcon(new ImageIcon("src/images/blur.jpg")
+                .getImage().getScaledInstance(600, 500, 4)));
+        background.setBounds(0, 0, 600, 500);
     }
     
     private void panelSettings(){
@@ -134,6 +154,7 @@ public class Gui {
         panel.add(runsAverage);
         panel.add(bCalculate);
         panel.add(result);
+        panel.add(background);
     }
     
     private void show(){

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -23,8 +24,8 @@ public class FileReader {
             while(reader.hasNext())
                 numbers.add(reader.nextDouble());
             return numbers;
-        }catch(FileNotFoundException e){
-            JOptionPane.showMessageDialog(null, "File not Found", "Error", 0);
+        }catch(FileNotFoundException | InputMismatchException e){
+            JOptionPane.showMessageDialog(null, "Error trying to open the file.", "Error", 0);
         }
         return null;
     }

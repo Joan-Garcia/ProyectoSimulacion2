@@ -13,12 +13,13 @@ import java.util.ArrayList;
  */
 public class RunsUpandDown {
 
-    int contador = 0;
     public RunsUpandDown() {
 
     }
 
     public String areIndependent(ArrayList<Double> Numbers, int confidence) {
+         int contador = 0;
+
         ArrayList<Integer> Runs = new ArrayList();
         {//Method to generate 1s and 0s
         for (int i = 0, j = 1; j < Numbers.size(); i++, j++) {
@@ -28,7 +29,7 @@ public class RunsUpandDown {
                 Runs.add(0);
             }
         }
-        //System.out.println(Runs);
+        System.out.println(Runs);
         //Method to count runs
         for (int i = 0, j = 1; j < Runs.size(); i++, j++) {
             if (Runs.get(j) == Runs.get(i)) {
@@ -42,8 +43,13 @@ public class RunsUpandDown {
 }
 
     private String answerMe(int i, int n, int confiden) {
-        float mc = (2*n-1)/3;
-        float powerO = (16*n-29)/90;
+        System.out.println(i);
+        System.out.println(n);
+        double mc = (((2*((double) n))-1))/3;
+        System.out.println(mc);
+        double powerO;
+        powerO = (((16*((double)n))-29))/90;
+        System.out.println(powerO);
         float zo = (float) Math.abs((i-mc)/(Math.sqrt(powerO)));
         System.out.println(zo);
         if(confiden==80){

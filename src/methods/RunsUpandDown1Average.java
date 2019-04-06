@@ -13,13 +13,13 @@ import java.util.ArrayList;
  */
 public class RunsUpandDown1Average {
 
-    int contador = 0, contador0 = 0, contador1 = 0;
     
     public RunsUpandDown1Average() {
 
     }
 
     public String areIndependent(ArrayList<Double> Numbers, int confidence) {
+            int contador = 0, contador0 = 0, contador1 = 0;
         ArrayList<Integer> Runs = new ArrayList();
         {//Method to generate 1s and 0s
         for (int i = 0; i < Numbers.size(); i++) {
@@ -29,7 +29,7 @@ public class RunsUpandDown1Average {
                 Runs.add(0);
             }
         }
-        System.out.println(Runs);
+        //System.out.println(Runs);
         //Method to count runs
         for (int i = 0, j = 1; j < Runs.size(); i++, j++) {
             if (Runs.get(j) == Runs.get(i)) {
@@ -50,8 +50,8 @@ public class RunsUpandDown1Average {
 }
 
     private String answerMe(int i, int n, int confiden, int coun1, int count0) {
-        float mc = (float) (((2*coun1*count0)/n) + 0.5);
-        float powerO = ((2*coun1*count0)*(2*count0*coun1-n))/(n*n*(n-1));
+        float mc = (float) (((2*coun1*count0)/((double) n) + 0.5));
+        float powerO = ((2*coun1*count0)*(2*count0*coun1- ((float) n)  ))/(n*n*(n-1));
         float zo = (float) Math.abs((i-mc)/(Math.sqrt(powerO)));
         System.out.println(zo);
         if(confiden==80){

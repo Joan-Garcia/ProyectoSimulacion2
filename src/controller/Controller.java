@@ -13,6 +13,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import methods.RunsUpandDown;
 import methods.RunsUpandDown1Average;
+import methods.methodChi;
 import model.FileReader;
 
 public class Controller implements ActionListener{
@@ -25,6 +26,7 @@ public class Controller implements ActionListener{
     private FileReader fr;
     private RunsUpandDown rud;
     private RunsUpandDown1Average ruda;
+    private methodChi chiChenol;
     
     public Controller(JTextField dirFile, JComboBox confidence,
             ButtonGroup radioGroup, JLabel result, JButton bCalculate,
@@ -42,6 +44,7 @@ public class Controller implements ActionListener{
         fr = new FileReader();
         rud = new RunsUpandDown();
         ruda = new RunsUpandDown1Average();
+        chiChenol = new methodChi();
     }
     
     private boolean checkData(){
@@ -58,7 +61,7 @@ public class Controller implements ActionListener{
                 if (n != null) {
                     int confi= Integer.parseInt(confidence.getSelectedItem().toString());
                     if (chi.isSelected()) {
-                        result.setText("Coming Soon!");
+                        result.setText(chiChenol.calcular(n, confi));
                     } else if (runs.isSelected()){
                         result.setText(rud.areIndependent(n, confi));
                     } else if (runsAverage.isSelected()){

@@ -10,6 +10,6 @@ import methods.methodChi;
 public class TestChiCheñor {
    
     public static void main(String[] args) {
-        new methodChi().corrida();
+      //  new methodChi().corrida();
     }
 }

@@ -132,7 +132,7 @@ public class Gui {
     
     private void resultSettings(){
         result.setFont(new Font("Century Gothic", Font.BOLD, 25));
-        result.setBounds(20, 350, 470, 30);
+        result.setBounds(20, 350, 500, 30);
         result.setForeground(Color.white);
     }
     
